@@ -9,3 +9,7 @@ ja:
         password: パスワード
         first_kana: お名前カナ(全角) 
         last_kana: お名前カナ(全角)
+        nickname: ニックネーム
+        first_name: お名前(全角)
+        last_name: お名前(全角)
+        birthday: 誕生日
