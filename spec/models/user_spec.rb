@@ -24,54 +24,59 @@ RSpec.describe User, type: :model do
       it 'emailが空だと登録できない' do
         @user.email = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('メールアドレスを入力してください')
+        expect(@user.errors.full_messages).to include('メールアドレスが入力されていません。')
+      end
+      it 'emailが@マークなしでは登録できない' do
+        @user.email = 'testtest.com'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('メールアドレスは有効でありません。')
       end
       it 'nicknameが空では登録できない' do
         @user.nickname = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('ニックネームを入力してください')
+        expect(@user.errors.full_messages).to include('ニックネームが入力されていません。')
       end
       it 'passwordが空では登録できない' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('パスワードを入力してください')
+        expect(@user.errors.full_messages).to include('パスワードが入力されていません。')
       end
       it 'password_confirmationが空では登録できない' do
         @user.password_confirmation = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('パスワード(確認)とパスワードの入力が一致しません')
+        expect(@user.errors.full_messages).to include('パスワード(確認)が内容とあっていません。')
       end
       it 'first_nameが空では登録できない' do
         @user.first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('お名前(全角)を入力してください')
+        expect(@user.errors.full_messages).to include('お名前(全角)が入力されていません。')
       end
       it 'last_nameが空では登録できない' do
         @user.last_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('お名前(全角)を入力してください')
+        expect(@user.errors.full_messages).to include('お名前(全角)が入力されていません。')
       end
       it 'first_kanaが空では登録できない' do
         @user.first_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('お名前カナ(全角)を入力してください')
+        expect(@user.errors.full_messages).to include('お名前カナ(全角)が入力されていません。')
       end
       it 'last_kanaが空では登録できない' do
         @user.last_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('お名前カナ(全角)を入力してください')
+        expect(@user.errors.full_messages).to include('お名前カナ(全角)が入力されていません。')
       end
       it 'birthdayが空では登録できない' do
         @user.birthday = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('誕生日を入力してください')
+        expect(@user.errors.full_messages).to include('誕生日が入力されていません。')
       end
       it 'emailがすでに存在していれば登録できない' do
         @user.save
         another_user = FactoryBot.build(:user)
         another_user.email = @user.email
         another_user.valid?
-        expect(another_user.errors.full_messages).to include('メールアドレスはすでに存在します')
+        expect(another_user.errors.full_messages).to include('メールアドレスは既に使用されています。')
       end
       it 'passwordが英数混合でなければ登録できない' do
         @user.password = 'qwerty'
@@ -81,7 +86,7 @@ RSpec.describe User, type: :model do
       it 'passwordが5文字以下では登録できない' do
         @user.password = 'qwert'
         @user.valid?
-        expect(@user.errors.full_messages).to include('パスワードは6文字以上で入力してください')
+        expect(@user.errors.full_messages).to include('パスワードは6文字以上に設定して下さい。')
       end
       it 'first_nameが漢字あるいはひらがな以外では登録できない' do
         @user.first_name = 'test'
