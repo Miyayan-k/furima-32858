@@ -11,10 +11,13 @@ class User < ApplicationRecord
   NAME_REGEX = /\A[ぁ-ん一-龥々]+\z/.freeze
   validates_format_of [:first_name, :last_name], with: NAME_REGEX, message: 'は全角漢字あるいは全角ひらがなのみ使用できます'
 
-  validates :nickname,   presence: true
-  validates :first_name, presence: true
-  validates :last_name,  presence: true
-  validates :first_kana, presence: true
-  validates :last_kana,  presence: true
-  validates :birthday,   presence: true
+  with_options presence: true do
+    validates :nickname
+    validates :first_name
+    validates :last_name
+    validates :first_kana
+    validates :last_kana
+    validates :birthday
+  end
+  
 end
