@@ -23,5 +23,9 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :days, :consignor_area, :shipping, :state, :category
+  belongs_to :days
+  belongs_to :consignor_area
+  belongs_to :shipping
+  belongs_to :state
+  belongs_to :category
 end
