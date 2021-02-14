@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
+      render :new
     end
   end
 
@@ -21,6 +22,6 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :title, :description, :category_id, :state_id, 
       :shipping_id, :consignor_area_id, :days_id, :price, :image
-    )
+    ).merge(user_id: current_user.id)
   end
 end
