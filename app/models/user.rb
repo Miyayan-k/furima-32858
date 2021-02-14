@@ -19,5 +19,7 @@ class User < ApplicationRecord
     validates :last_kana
     validates :birthday
   end
+
+  has_many :items
   
 end
