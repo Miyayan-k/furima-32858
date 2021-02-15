@@ -6,6 +6,8 @@ function calculate (){
       if(isNaN(getPrice)) return 0;
       const getFee = document.getElementById("add-tax-price");
       getFee.innerHTML = `${Math.floor(getPrice * 0.1)}`;
+      const getProfit = document.getElementById("profit");
+      getProfit.innerHTML = `${getPrice - Math.floor(getPrice * 0.1)}`;
     });
   }
 }
