@@ -3,6 +3,7 @@ function calculate (){
     const itemPrice = document.getElementById("item-price");
     itemPrice.addEventListener("keyup", () => {
       const getPrice = itemPrice.value;
+      if(isNaN(getPrice)) return 0;
       const getFee = document.getElementById("add-tax-price");
       getFee.innerHTML = `${Math.floor(getPrice * 0.1)}`;
     });
