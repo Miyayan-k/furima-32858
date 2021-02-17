@@ -24,6 +24,7 @@ ja:
         consignor_area_id: 発送元の地域
         days_id: 発送までの日数
         image: 出品画像
+        :user: ユーザー
     errors:
       messages:
         greater_than_or_equal_to: は%{count}円以上にしてください
