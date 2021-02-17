@@ -27,7 +27,7 @@ ja:
         :user: ユーザー
     errors:
       messages:
-        greater_than_or_equal_to: は%{count}円以上にしてください
-        less_than_or_equal_to: は%{count}円以下にしてください
-        other_than: を選択してください
-        not_a_number: は半角数字のみ入力できます
+        greater_than_or_equal_to: は%{count}円以上にしてください。
+        less_than_or_equal_to: は%{count}円以下にしてください。
+        other_than: を選択してください。
+        not_a_number: は半角数字のみ入力できます。

@@ -10,7 +10,7 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
       it '価格が300~9999999円の間であれば出品出来る' do
-        @item.price = Faker::Number.between(from: 300, to: 9999999)
+        @item.price = Faker::Number.between(from: 300, to: 9_999_999)
         expect(@item).to be_valid
       end
     end
