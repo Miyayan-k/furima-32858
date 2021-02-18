@@ -1,7 +1,4 @@
 class Item < ApplicationRecord
-  # PRICE_REGEX = /\A[0-9]+\z/.freeze
-  # validates_format_of [:price], with: PRICE_REGEX, message: 'は半角数字のみ使用できます'
-
   with_options presence: true do
     validates :title
     validates :description

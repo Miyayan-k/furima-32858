@@ -36,39 +36,54 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('価格が入力されていません。')
       end
       it 'カテゴリーを選択しないと出品出来ない' do
-        @item.category_id = '0'
+        @item.category_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('カテゴリーを選択してください')
+        expect(@item.errors.full_messages).to include('カテゴリーを選択してください。')
       end
       it '商品の状態を選択しないと出品出来ない' do
-        @item.state_id = '0'
+        @item.state_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('商品の状態を選択してください')
+        expect(@item.errors.full_messages).to include('商品の状態を選択してください。')
       end
       it '配送料の負担を選択しないと出品出来ない' do
-        @item.shipping_id = '0'
+        @item.shipping_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('配送料の負担を選択してください')
+        expect(@item.errors.full_messages).to include('配送料の負担を選択してください。')
       end
       it '発送元の地域を選択しないと出品出来ない' do
-        @item.consignor_area_id = '0'
+        @item.consignor_area_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('発送元の地域を選択してください')
+        expect(@item.errors.full_messages).to include('発送元の地域を選択してください。')
       end
       it '発送までの日数を選択しないと出品出来ない' do
-        @item.days_id = '0'
+        @item.days_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('発送までの日数を選択してください')
+        expect(@item.errors.full_messages).to include('発送までの日数を選択してください。')
       end
       it '価格が半角数字でないと出品出来ない' do
         @item.price = '３００００円'
         @item.valid?
-        expect(@item.errors.full_messages).to include('価格は半角数字のみ入力できます')
+        expect(@item.errors.full_messages).to include('価格は半角数字のみ入力できます。')
       end
-      it '価格が300~9999999円の間でないと出品出来ない' do
-        @item.price = '299'
+      it '価格が300円以下だと出品出来ない' do
+        @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include('価格は300円以上にしてください')
+        expect(@item.errors.full_messages).to include('価格は300円以上にしてください。')
+      end
+      it '価格が9999999円以上だと出品出来ない' do
+        @item.price = 10_000_000
+        @item.valid?
+        expect(@item.errors.full_messages).to include('価格は9999999円以下にしてください。')
+      end
+      it '価格が半角英数混合だと出品出来ない' do
+        @item.price = 'abc123'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('価格は半角数字のみ入力できます。')
+      end
+      it '価格が半角英語だと出品出来ない' do
+        @item.price = 'abcdefg'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('価格は半角数字のみ入力できます。')
       end
       it 'ユーザーが紐付いていなければ出品出来ない' do
         @item.user = nil
