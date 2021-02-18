@@ -14,3 +14,20 @@ ja:
         first_name: お名前(全角)
         last_name: お名前(全角)
         birthday: 誕生日
+      item:
+        price: 価格
+        title: 商品名
+        description: 商品の説明
+        category_id: カテゴリー
+        state_id: 商品の状態
+        shipping_id: 配送料の負担
+        consignor_area_id: 発送元の地域
+        days_id: 発送までの日数
+        image: 出品画像
+        :user: ユーザー
+    errors:
+      messages:
+        greater_than_or_equal_to: は%{count}円以上にしてください。
+        less_than_or_equal_to: は%{count}円以下にしてください。
+        other_than: を選択してください。
+        not_a_number: は半角数字のみ入力できます。
