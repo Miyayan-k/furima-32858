@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'purchases/index'
   devise_for :users
   root to: "items#index"
-  resources :items
+  resources :items do
+    resources :purchases, only: :index
+  end
 
   # ログアウト実行時に「No route matches [GET] "/users/sign_out"」エラーが発生するため
   devise_scope :user do
