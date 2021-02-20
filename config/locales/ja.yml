@@ -31,3 +31,16 @@ ja:
         less_than_or_equal_to: は%{count}円以下にしてください。
         other_than: を選択してください。
         not_a_number: は半角数字のみ入力できます。
+
+  activemodel:
+    attributes:
+      purchase_address:
+        post_number: 郵便番号
+        city: 市区町村
+        street_number: 番地
+        building: 建物名
+        tel: 電話番号
+        prefecture_id: 都道府県
+    errors:
+      messages:
+        other_than: を選択してください。
