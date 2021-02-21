@@ -42,6 +42,8 @@ ja:
         tel: 電話番号
         prefecture_id: 都道府県
         token: クレジットカード情報
+        user_id: ユーザー
+        item_id: 商品
     errors:
       messages:
         other_than: を選択してください。

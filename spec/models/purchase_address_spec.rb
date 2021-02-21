@@ -51,6 +51,31 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include('クレジットカード情報が入力されていません。')
       end
+      it 'user_idが空では保存できないこと' do
+        @purchase_address.user_id = nil
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include('ユーザーが入力されていません。')
+      end
+      it 'user_idが空では保存できないこと' do
+        @purchase_address.item_id = nil
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include('商品が入力されていません。')
+      end
+      it '電話番号は数字のみでないと登録できないこと' do
+        @purchase_address.tel = 'ABCDEFGH'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include('電話番号は半角数字のみ入力できます。')
+      end
+      it '電話番号は全角数字だと登録できないこと' do
+        @purchase_address.tel = '１２３４５６７８９０'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include('電話番号は半角数字のみ入力できます。')
+      end
+      it '電話番号は12桁以上だと登録できないこと' do
+        @purchase_address.tel = '070123456789'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include('電話番号は11文字以下に設定して下さい。')
+      end
     end
   end
 end

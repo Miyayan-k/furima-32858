@@ -6,6 +6,8 @@ FactoryBot.define do
     street_number { '1-1' }
     building      { 'ジオグランデマンション3301' }
     tel           { Faker::Number.leading_zero_number(digits: 10) }
+    user_id       { 5 }
+    item_id       { 5 }
     token         { 'tok_anejjxueialskd00000000000' }
   end
 end
