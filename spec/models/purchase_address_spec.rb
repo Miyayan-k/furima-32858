@@ -2,7 +2,11 @@ require 'rails_helper'
 
 RSpec.describe PurchaseAddress, type: :model do
   before do
-    @purchase_address = FactoryBot.build(:purchase_address)
+    user = FactoryBot.create(:user)
+    item = FactoryBot.create(:item)
+    @purchase_address = FactoryBot.build(:purchase_address, user_id: user.id, item_id: item.id)
+    # 通常実行時に"MySQL client is not connected"というエラー発生のため、下記記述
+    sleep 0.1
   end
 
   describe '商品購入' do
