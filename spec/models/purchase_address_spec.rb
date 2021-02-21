@@ -49,7 +49,7 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'tokenが空では保存できないこと' do
         @purchase_address.token = nil
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include('Tokenが入力されていません。')
+        expect(@purchase_address.errors.full_messages).to include('クレジットカード情報が入力されていません。')
       end
     end
   end
