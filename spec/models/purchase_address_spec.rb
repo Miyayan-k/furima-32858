@@ -46,6 +46,11 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include('郵便番号にはハイフンを入れてください。')
       end
+      it 'tokenが空では保存できないこと' do
+        @purchase_address.token = nil
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include('Tokenが入力されていません。')
+      end
     end
   end
 end

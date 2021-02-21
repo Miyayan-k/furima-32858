@@ -41,6 +41,7 @@ ja:
         building: 建物名
         tel: 電話番号
         prefecture_id: 都道府県
+        token: クレジットカード情報
     errors:
       messages:
         other_than: を選択してください。

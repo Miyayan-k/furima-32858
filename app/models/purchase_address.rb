@@ -9,6 +9,7 @@ class PurchaseAddress
     validates :street_number
     validates :tel
     validates :prefecture_id, numericality: { other_than: 0 }
+    validates :token
   end
 
   def save
