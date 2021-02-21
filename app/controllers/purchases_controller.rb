@@ -1,4 +1,5 @@
 class PurchasesController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_item, only: [:index, :create]
   def index
     @purchase_address = PurchaseAddress.new
