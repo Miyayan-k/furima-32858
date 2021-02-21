@@ -12,7 +12,6 @@ class PurchaseAddress
   end
 
   def save
-    binding.pry
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
     Address.create(post_number: post_number, prefecture_id: prefecture_id, city: city,
     street_number: street_number, building: building, tel: tel, purchase_id: purchase.id)
