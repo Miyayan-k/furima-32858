@@ -56,7 +56,7 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include('ユーザーが入力されていません。')
       end
-      it 'user_idが空では保存できないこと' do
+      it 'item_idが空では保存できないこと' do
         @purchase_address.item_id = nil
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include('商品が入力されていません。')

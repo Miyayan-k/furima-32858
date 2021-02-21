@@ -7,7 +7,7 @@ class PurchaseAddress
     validates :post_number,   format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'にはハイフンを入れてください。' }
     validates :city
     validates :street_number
-    validates :tel,           format: { with: /\A[0-9]+\z/, message: 'は半角数字のみ入力できます。'}, length: { maximum: 11 }
+    validates :tel,           format: { with: /\A[0-9]+\z/, message: 'は半角数字のみ入力できます。' }, length: { maximum: 11 }
     validates :prefecture_id, numericality: { other_than: 0 }
     validates :token
     validates :user_id
