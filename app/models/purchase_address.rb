@@ -4,12 +4,14 @@ class PurchaseAddress
                 :building, :tel, :user_id, :item_id, :token
 
   with_options presence: true do
-    validates :post_number, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'にはハイフンを入れてください。' }
+    validates :post_number,   format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'にはハイフンを入れてください。' }
     validates :city
     validates :street_number
-    validates :tel
+    validates :tel,           format: { with: /\A[0-9]+\z/, message: 'は半角数字のみ入力できます。'}, length: { maximum: 11 }
     validates :prefecture_id, numericality: { other_than: 0 }
     validates :token
+    validates :user_id
+    validates :item_id
   end
 
   def save
