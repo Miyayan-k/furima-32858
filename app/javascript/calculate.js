@@ -1,5 +1,5 @@
 function calculate (){
-  if (document.URL.match(/items/) || document.URL.match(/new/)) {
+  if (document.URL.match(/edit/) || document.URL.match(/new/)) {
     const itemPrice = document.getElementById("item-price");
     itemPrice.addEventListener("keyup", () => {
       const getPrice = itemPrice.value;
