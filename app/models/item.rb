@@ -25,4 +25,5 @@ class Item < ApplicationRecord
   belongs_to :shipping
   belongs_to :state
   belongs_to :category
+  has_many   :comments, dependent: :destroy
 end
