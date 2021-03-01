@@ -28,6 +28,10 @@ ja:
         days_id: 発送までの日数
         image: 出品画像
         :user: ユーザー
+      comment:
+        text: コメント
+        :user: ユーザー
+        :item: 商品
     errors:
       messages:
         greater_than_or_equal_to: は%{count}円以上にしてください。

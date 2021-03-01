@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @item.comments.includes(:user).order(created_at: "DESC")
+    @comments = @item.comments.includes(:user)
   end
 
   def edit
