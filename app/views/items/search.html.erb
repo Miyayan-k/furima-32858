@@ -1,0 +1,9 @@
+<%= render "shared/header" %>
+
+<div class="item-contents">
+  <% @items.reverse_each do |item| %>
+    <%= render partial: "item", locals: { item: item } %>
+  <% end %>
+</div>
+
+<%= render "shared/footer" %>
